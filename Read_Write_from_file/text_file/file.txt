@@ -1,0 +1,2 @@
+echo Hello Person
+ping -c 5 google.com
