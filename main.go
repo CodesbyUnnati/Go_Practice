@@ -8,23 +8,27 @@ import (
 
 func main() {
 	fmt.Println("hello, this is the start of the program")
-	// text, err := os.ReadFile("./text_file/file.txt")
-	//  if err != nil {
-	// 	fmt.Printf("Error is:%v", err)
+	// Read from a file
+	text, err := os.ReadFile("./text_file/file.txt")
+	if err != nil {
+		fmt.Printf("Error is:%v", err)
 
-	// }
-	//fmt.Println(string(text))
-	text, err := os.Open("./text_file/file.txt")
+	}
+	//Print from the file
+	fmt.Println(string(text))
+	//Open the file
+	ok, err := os.Open("./text_file/file.txt")
 	if err != nil {
 		fmt.Printf("Error is:%v", err)
 
 	}
 
-	defer text.Close()
+	defer ok.Close()
 
-	scanner := bufio.NewScanner(text)
-
+	scanner := bufio.NewScanner(ok)
+	//Print text one by one on loop
 	i := 0
+	//This is for + while condition together
 	for scanner.Scan() {
 
 		one := scanner.Text()
